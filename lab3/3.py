@@ -1,69 +1,105 @@
 import pygame
 from pygame.draw import *
-def f(x,b,h,e,s,n,m,z):
-    circle(screen, b, (x, 480), 150)
-    circle(screen, s, (x, 250), 130)
-    polygon(screen, m, [(x-70,275), (x+70,275),(x,320)])
-    polygon(screen, n, [(x-10,247), (x+10,247),(x,265)])
-    polygon(screen, (0,0,0), [(x-70,275), (x+70,275),(x,320)],1)
-    polygon(screen, (0,0,0), [(x-10,247), (x+10,247),(x,265)],1)
-    circle(screen, e, (x+50, 210), 25)
-    circle(screen, e, (x-50, 210), 25)
-    circle(screen, (0,0,0), (x+50, 210), 25,1)
-    circle(screen, (0,0,0), (x-50, 210), 25,1)
-    circle(screen, z, (x+50, 215), 7)
-    circle(screen, z, (x-50, 215), 7)
-    polygon(screen, s, [(x+115,360), (x+127,369),(x+230,40),
-                                            (x+218,31)])
-    polygon(screen, s, [(x-115,360), (x-127,369),(x-230,40),
-                                            (x-218,31)])
-    circle(screen, s, (x+215,40), 25)
-    circle(screen, s, (x-215,40), 25)
-    polygon(screen, b, [(x+80,360), (x+110,320),(x+150,335),
-                                            (x+150,385),(x+110,400)])
-    polygon(screen, b, [(x-80,360), (x-110,320),(x-150,335),
-                                            (x-150,385),(x-110,400)])
-    polygon(screen, (0,0,0), [(x+80,360), (x+110,320),(x+150,335),
-                                            (x+150,385),(x+110,400)],1)
-    polygon(screen, (0,0,0), [(x-80,360), (x-110,320),(x-150,335),
-                                            (x-150,385),(x-110,400)],1)
-    polygon(screen, h, [(x-92,158),(x-71,137),(x-92,128)])
-    polygon(screen, (0,0,0), [(x-92,158),(x-71,137),(x-92,128)],1)
-    polygon(screen, h, [(x-75,144),(x-50,127),(x-75,114)])
-    polygon(screen, (0,0,0), [(x-75,144),(x-50,127),(x-75,114)],1)
-    polygon(screen, h, [(x-55,132),(x-28,119),(x-55,102)])
-    polygon(screen, (0,0,0), [(x-55,132),(x-28,119),(x-55,102)],1)
-    polygon(screen, h, [(x-34,124),(x-5,116),(x-30,94)])
-    polygon(screen, (0,0,0), [(x-34,124),(x-5,116),(x-30,94)],1)
-    polygon(screen, h, [(x-11,120),(x+19,117),(x,90)])
-    polygon(screen, (0,0,0), [(x-11,120),(x+19,117),(x,90)],1)
-    polygon(screen, h, [(x+11,121),(x+41,124),(x+24,98)])
-    polygon(screen, (0,0,0), [(x+11,121),(x+41,124),(x+24,98)],1)
-    polygon(screen, h, [(x+34,124),(x+63,132),(x+52,100)])
-    polygon(screen, (0,0,0), [(x+34,124),(x+63,132),(x+52,100)],1)
-    polygon(screen, h, [(x+55,132),(x+82,145),(x+70,112)])
-    polygon(screen, (0,0,0), [(x+55,132),(x+82,145),(x+70,112)],1)
-    polygon(screen, h, [(x+75,144),(x+100,161),(x+94,128)])
-    polygon(screen, (0,0,0), [(x+75,144),(x+100,161),(x+94,128)],1)
-    polygon(screen, h, [(x+92,158),(x+108,179),(x+108,148)])
-    polygon(screen, (0,0,0), [(x+92,158),(x+108,179),(x+108,148)],1)
-    
-x=300#координата центра головы
-b=(255, 117, 34)#цвет тела 
-h=(180, 0, 227)#цвет волос
-e=(1, 215, 232)#цвет глаз
-s=(255, 220, 185)#цвет кожи
-n=(87, 0, 2)#цвет носа
-m=(255, 0, 0)#цвет рта
-z=(0, 0, 0)#цвет зрачков
+
+def head (surface,head_center,hair_col,eye_col,skin_col,nose_col,mouse_col,pupil_col):
+    '''
+   Функция рисует голову одного человечка
+    '''
+    circle(surface, skin_col, (head_center, 250), 130)
+
+    polygon(surface, mouse_col, [(head_center-70,275), (head_center+70,275),(head_center,320)])
+
+    polygon(surface, nose_col, [(head_center-10,247), (head_center+10,247),(head_center,265)])
+
+    polygon(surface, (0,0,0), [(head_center-70,275), (head_center+70,275),(head_center,320)],1)
+    polygon(surface, (0,0,0), [(head_center-10,247), (head_center+10,247),(head_center,265)],1)
+
+    circle(surface, eye_col ,(head_center+50, 210), 25)
+    circle(surface, eye_col, (head_center-50, 210), 25)
+    circle(surface, (0,0,0), (head_center+50, 210), 25,1)
+    circle(surface, (0,0,0), (head_center-50, 210), 25,1)
+
+    circle(surface, pupil_col, (head_center+50, 215), 7)
+    circle(surface, pupil_col, (head_center-50, 215), 7)
+
+    polygon(surface, hair_col, [(head_center-92,158),(head_center-71,137),(head_center-92,128)])
+    polygon(surface, (0,0,0), [(head_center-92,158),(head_center-71,137),(head_center-92,128)],1)
+    polygon(surface, hair_col, [(head_center-75,144),(head_center-50,127),(head_center-75,114)])
+    polygon(surface, (0,0,0), [(head_center-75,144),(head_center-50,127),(head_center-75,114)],1)
+    polygon(surface, hair_col, [(head_center-55,132),(head_center-28,119),(head_center-55,102)])
+    polygon(surface, (0,0,0), [(head_center-55,132),(head_center-28,119),(head_center-55,102)],1)
+    polygon(surface, hair_col, [(head_center-34,124),(head_center-5,116),(head_center-30,94)])
+    polygon(surface, (0,0,0), [(head_center-34,124),(head_center-5,116),(head_center-30,94)],1)
+    polygon(surface, hair_col, [(head_center-11,120),(head_center+19,117),(head_center,90)])
+    polygon(surface, (0,0,0), [(head_center-11,120),(head_center+19,117),(head_center,90)],1)
+    polygon(surface, hair_col, [(head_center+11,121),(head_center+41,124),(head_center+24,98)])
+    polygon(surface, (0,0,0), [(head_center+11,121),(head_center+41,124),(head_center+24,98)],1)
+    polygon(surface, hair_col, [(head_center+34,124),(head_center+63,132),(head_center+52,100)])
+    polygon(surface, (0,0,0), [(head_center+34,124),(head_center+63,132),(head_center+52,100)],1)
+    polygon(surface, hair_col, [(head_center+55,132),(head_center+82,145),(head_center+70,112)])
+    polygon(surface, (0,0,0), [(head_center+55,132),(head_center+82,145),(head_center+70,112)],1)
+    polygon(surface, hair_col, [(head_center+75,144),(head_center+100,161),(head_center+94,128)])
+    polygon(surface, (0,0,0), [(head_center+75,144),(head_center+100,161),(head_center+94,128)],1)
+    polygon(surface, hair_col, [(head_center+92,158),(head_center+108,179),(head_center+108,148)])
+    polygon(surface, (0,0,0), [(head_center+92,158),(head_center+108,179),(head_center+108,148)],1)
+
+def arms (surface,head_center,skin_col,body_col):
+    '''
+    Функция рисует руки одного человечка
+    '''
+    polygon(surface, skin_col, [(head_center+115,360), (head_center+127,369),(head_center+230,40),
+                               (head_center+218,31)])
+    polygon(surface, skin_col, [(head_center-115,360), (head_center-127,369),(head_center-230,40),
+                               (head_center-218,31)])
+
+    circle(surface, skin_col, (head_center+215,40), 25)
+    circle(surface, skin_col, (head_center-215,40), 25)
+    polygon(surface, body_col, [(head_center+80,360), (head_center+110,320),(head_center+150,335),
+                               (head_center+150,385),(head_center+110,400)])
+    polygon(surface, body_col, [(head_center-80,360), (head_center-110,320),(head_center-150,335),
+                               (head_center-150,385),(head_center-110,400)])
+    polygon(surface, (0,0,0), [(head_center+80,360), (head_center+110,320),(head_center+150,335),
+                              (head_center+150,385),(head_center+110,400)],1)
+    polygon(surface, (0,0,0), [(head_center-80,360), (head_center-110,320),(head_center-150,335),
+                              (head_center-150,385),(head_center-110,400)],1)
+
+ def body (surface,head_center,body_col):
+    '''
+    Функция рисует тело одного человечка
+    x,y - координаты центра головы
+    size - размер головы
+    '''
+    circle(surface, body_col, (head_center, 480), 150)
+
+    circle(surface, body_col, (x,y), size)
+
+def person (surface,head_center,hair_col,eye_col,skin_col,nose_col,mouse_col,pupil_col):
+    '''
+    Функция рисует человечка
+    '''
+    head(surface,head_center,hair_col,eye_col,skin_col,nose_col,mouse_col,pupil_col)
+    arms(surface,head_center,skin_col,body_col)
+    body(surface,head_center,body_col)
+
+
+head_center=290#координата центра головы,head_center
+body_col=(255, 117, 34)#цвет тела ,b
+hair_col=(180, 0, 227)#цвет волос,h
+eye_col=(1, 215, 232)#цвет глаз,e
+skin_col=(255, 220, 185)#цвет кожи,s
+nose_col=(87, 0, 2)#цвет носа,n
+mouse_col=(255, 0, 0)#цвет рта,m
+pupil_col=(0, 0, 0)#цвет зрачков,z
+
 
 pygame.init()
 FPS = 30
 screen = pygame.display.set_mode((1010, 450))
 screen.fill((255,255,255))
+surface = pygame.Surface()
 
-f(290,(1, 100, 1),(226, 226, 0),(205, 230, 212),s,n,m,z)
-f(720,b,h,e,s,n,m,z)
+person(surface, 290,(1, 100, 1),(226, 226, 0),(205, 230, 212),skin_col,nose_col,mouse_col,pupil_col)
+person(surface,720,body_col,hair_col,eye_col,skin_col,nose_col,mouse_col,pupil_col)
 
 rect(screen, (0, 254, 0), (40, 0, 930, 45))
 rect(screen, (0, 0, 0), (40, 0, 930, 45),1)
